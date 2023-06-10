@@ -26,4 +26,6 @@ resource "azuredevops_git_repository" "repo" {
   }
 }
 
-
+output "ssh_repo_url" {
+  value = azuredevops_git_repository.repo.ssh_url
+}
