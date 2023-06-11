@@ -36,6 +36,15 @@ resource "azuredevops_git_repository" "repo" {
   }
 }
 
+resource "azuredevops_git_repository_branch" "main" {
+  repository_id = azuredevops_git_repository.repo.id
+  name          = "main"
+}
+
 output "ssh_repo_url" {
   value = azuredevops_git_repository.repo.ssh_url
+}
+
+output "project_name" {
+  value = azuredevops_project.proj.name
 }
